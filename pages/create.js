@@ -17,7 +17,7 @@ const Create = () => {
     const shareData = {
         title: `Happy Diwali from ${name}`,
         text: `Happy Diwali from ${name}`,
-        url: `http://localhost:3000/?from=${name}`,
+        url: `https://diwali-wishes.vercel.app/?from=${name}`,
     };
     const Sharebutton = () => {
         try {
@@ -49,13 +49,13 @@ const Create = () => {
                         />
                     </div>
                     {valuePresent ? (
-                        <p>http://localhost:3000/?from={name}</p>
+                        <p>https://diwali-wishes.vercel.app/?from={name}</p>
                     ) : null}
                     <div className="button">
                         <button
                             onClick={() => {
                                 navigator.clipboard.writeText(
-                                    `http://localhost:3000/?from=${name}`
+                                    `https://diwali-wishes.vercel.app/?from=${name}`
                                 );
                             }}
                         >
