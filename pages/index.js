@@ -18,14 +18,14 @@ const Home = (prop) => {
                     <img src="/gift.png" alt="gift" />
                     <div className="button">
                         <Link href="/gifts">
-                            <button>Gift's for you</button>
+                            <button>Gifts for you</button>
                         </Link>
                     </div>
                 </div>
             </div>
             <div className="botttom-button">
                 <Link href="/create">
-                    <button>Create Your's</button>
+                    <button>Create Yours</button>
                 </Link>
             </div>
         </section>
