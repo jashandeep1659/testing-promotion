@@ -46,7 +46,7 @@ const Home = (prop) => {
                 <meta property="og:type" content="article" />
                 <meta
                     property="og:image"
-                    content="https://diwali-wishes.vercel.app/fire.png"
+                    content="https://diwali-wishes.vercel.app/thumb.png"
                 />
                 <meta
                     property="og:url"
