@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 const Create = () => {
     const [name, setname] = useState("Your Name");
     const [valuePresent, setvaluePresent] = useState(false);
-
+    const [copyLinkdata, setcopyLinkdata] = useState("copy link");
     const SetThevalue = (e) => {
         if (e !== "") {
             setname(e);
@@ -14,6 +14,15 @@ const Create = () => {
             setvaluePresent(false);
         }
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setcopyLinkdata("copy link");
+        }, 2000);
+
+        return () => {};
+    }, [copyLinkdata]);
+
     const shareData = {
         title: `Happy Diwali from ${name}`,
         text: `Happy Diwali from ${name}`,
@@ -24,12 +33,19 @@ const Create = () => {
             navigator.share(shareData);
             console.log("succesful");
         } catch (err) {
-            alert("un");
+            alert("Sorry share function is not available in your browser");
         }
     };
 
     return (
         <section id="Create">
+            <div className="backbutton">
+                <Link href="/">
+                    <a>
+                        <i className="bx bxs-home-alt-2"></i>
+                    </a>
+                </Link>
+            </div>
             <div className="text">
                 <div className="title">
                     <h1>Happy Diwali</h1>
@@ -51,19 +67,21 @@ const Create = () => {
                     {valuePresent ? (
                         <p>https://diwali-wishes.vercel.app/?from={name}</p>
                     ) : null}
+
+                    <div className="button">
+                        <button onClick={() => Sharebutton()}>Share</button>
+                    </div>
                     <div className="button">
                         <button
                             onClick={() => {
                                 navigator.clipboard.writeText(
-                                    `https://diwali-wishes.vercel.app/?from=${name}`
+                                    `https://diwali-wishes.vercel.app/?from=${name}`,
+                                    setcopyLinkdata("copied")
                                 );
                             }}
                         >
-                            Copy Link
+                            {copyLinkdata}
                         </button>
-                    </div>
-                    <div className="button">
-                        <button onClick={() => Sharebutton()}>Share</button>
                     </div>
                 </div>
             </div>

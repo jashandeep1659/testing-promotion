@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Countdown from "react-countdown";
+
 const Home = (prop) => {
+    const DiwaliDate = new Date("2022-10-24T00:00:00");
+    const [Timepending, setTimepending] = useState(null);
+    useEffect(() => {
+        setTimepending(DiwaliDate);
+    }, []);
+
+    const countDownRender = ({ days, hours, minutes, seconds, completed }) => {
+        if (completed) {
+            return <p>Happy Diwali</p>;
+        } else {
+            return (
+                <p className="time">
+                    {days}d:{hours}h:{minutes}m:{seconds}s
+                </p>
+            );
+        }
+    };
+
     return (
         <section id="Home">
             <div className="text">
@@ -8,7 +28,15 @@ const Home = (prop) => {
                     <h1>Happy Diwali</h1>
                     <img src="/fire.png" />
                 </div>
-                <p>In advance: 04d 3h 42sec </p>
+                <div className="advance">
+                    In advance:
+                    {Timepending ? (
+                        <Countdown
+                            date={new Date("2022-10-24T00:00:00")}
+                            renderer={countDownRender}
+                        />
+                    ) : null}
+                </div>
                 <h3>
                     From <span>{prop.from}</span>
                 </h3>

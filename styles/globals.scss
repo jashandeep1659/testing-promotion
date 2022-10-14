@@ -37,10 +37,14 @@ body {
             column-gap: 10px;
         }
     }
-    p {
+    .advance {
         font-weight: lighter;
+        display: flex;
         font-size: 13px;
         margin: 10px 0;
+        .time {
+            margin: 0 10px;
+        }
     }
     h3 {
         font-family: $secondary-font;
@@ -246,5 +250,22 @@ body {
             font-weight: bolder;
             border: none;
         }
+    }
+}
+.home {
+    margin: 5px;
+    img {
+        width: 20px;
+    }
+}
+.backbutton {
+    display: block;
+    margin: 10px 0;
+    a {
+        font-size: 20px;
+        color: white;
+        background-color: #737373;
+        padding: 3px;
+        border-radius: 50%;
     }
 }

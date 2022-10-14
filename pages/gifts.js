@@ -1,9 +1,16 @@
 import React from "react";
-
+import Link from "next/link";
 const Gifts = () => {
     return (
         <section id="Gift">
             <div className="text">
+                <div className="backbutton">
+                    <Link href="/">
+                        <a>
+                            <i className="bx bxs-home-alt-2"></i>
+                        </a>
+                    </Link>
+                </div>
                 <div className="title">
                     <h1>Great Deals</h1>
                     <img src="/fire.png" />
