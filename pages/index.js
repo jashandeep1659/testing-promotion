@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Countdown from "react-countdown";
+import Head from "next/head";
 
 const Home = (prop) => {
     const DiwaliDate = new Date("2022-10-24T00:00:00");
@@ -27,6 +28,41 @@ const Home = (prop) => {
 
     return (
         <section id="Home">
+            <Head>
+                <meta
+                    name="og:title"
+                    content={`Happy Diwali ${
+                        prop.from !== "Your name"
+                            ? prop.from
+                            : "wishes for you with some gifts"
+                    }`}
+                ></meta>
+                <meta
+                    name="og:description"
+                    content={`${
+                        prop.from !== "Your name" ? prop.from : "Your Friend"
+                    } wishes you a very happy diwali with some gifts check it out`}
+                ></meta>
+                <meta property="og:type" content="article" />
+                <meta property="og:image" content="/fire.png" />
+                <meta
+                    property="og:url"
+                    content={`https://diwali-wishes.vercel.app/?from=${
+                        prop.from ? prop.from : "Your Name"
+                    }`}
+                ></meta>
+
+                <meta
+                    property="og:description"
+                    content={`${
+                        prop.from !== "Your name" ? prop.from : "Your Friend"
+                    } wishes you a very happy diwali with some gifts check it out`}
+                />
+                <meta
+                    property="og:site_name"
+                    content="Happy Diwali specail way"
+                />
+            </Head>
             <div className="text">
                 <div className="title">
                     <h1>Happy Diwali</h1>
