@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 const Gifts = () => {
+    const [from, setfrom] = useState("Us");
+    useEffect(() => {
+        setfrom(
+            localStorage.getItem("from")
+                ? localStorage.getItem("from")
+                : "You Name"
+        );
+    }, []);
+
     return (
         <section id="Gift">
             <div className="text">
                 <div className="backbutton">
-                    <Link href="/">
+                    <Link href={`/?from=${from}`}>
                         <a>
                             <i className="bx bxs-home-alt-2"></i>
                         </a>

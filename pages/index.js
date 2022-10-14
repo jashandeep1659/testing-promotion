@@ -6,17 +6,21 @@ const Home = (prop) => {
     const DiwaliDate = new Date("2022-10-24T00:00:00");
     const [Timepending, setTimepending] = useState(null);
     useEffect(() => {
+        localStorage.setItem("from", prop.from ? prop.from : "Your Name");
         setTimepending(DiwaliDate);
     }, []);
 
     const countDownRender = ({ days, hours, minutes, seconds, completed }) => {
         if (completed) {
-            return <p>Happy Diwali</p>;
+            return null;
         } else {
             return (
-                <p className="time">
-                    {days}d:{hours}h:{minutes}m:{seconds}s
-                </p>
+                <>
+                    In advance:
+                    <p className="time">
+                        {days}d:{hours}h:{minutes}m:{seconds}s
+                    </p>
+                </>
             );
         }
     };
@@ -29,7 +33,6 @@ const Home = (prop) => {
                     <img src="/fire.png" />
                 </div>
                 <div className="advance">
-                    In advance:
                     {Timepending ? (
                         <Countdown
                             date={new Date("2022-10-24T00:00:00")}

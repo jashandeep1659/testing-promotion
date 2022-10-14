@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 const Create = () => {
+    const [from, setfrom] = useState("Us");
+    useEffect(() => {
+        setfrom(
+            localStorage.getItem("from")
+                ? localStorage.getItem("from")
+                : "You Name"
+        );
+    }, []);
+
     const [name, setname] = useState("Your Name");
     const [valuePresent, setvaluePresent] = useState(false);
     const [copyLinkdata, setcopyLinkdata] = useState("copy link");
@@ -25,22 +34,37 @@ const Create = () => {
 
     const shareData = {
         title: `Happy Diwali from ${name}`,
-        text: `Happy Diwali from ${name}`,
+        text: `${name} wishes you a very happy Diwali in a specail way with some great deals from Amazon. So check now fast https://diwali-wishes.vercel.app/?from=${name}.`,
         url: `https://diwali-wishes.vercel.app/?from=${name}`,
+    };
+
+    const copyData = () => {
+        try {
+            navigator.clipboard.writeText(
+                `https://diwali-wishes.vercel.app/?from=${name}`,
+                setcopyLinkdata("copied")
+            );
+        } catch {
+            alert(
+                "Sorry! for inconvenience😢This function is not available in your browser"
+            );
+        }
     };
     const Sharebutton = () => {
         try {
             navigator.share(shareData);
             console.log("succesful");
         } catch (err) {
-            alert("Sorry share function is not available in your browser");
+            alert(
+                "Sorry! for inconvenience😢This function is not available in your browser"
+            );
         }
     };
 
     return (
         <section id="Create">
             <div className="backbutton">
-                <Link href="/">
+                <Link href={`/?from=${from}`}>
                     <a>
                         <i className="bx bxs-home-alt-2"></i>
                     </a>
@@ -68,21 +92,45 @@ const Create = () => {
                         <p>https://diwali-wishes.vercel.app/?from={name}</p>
                     ) : null}
 
-                    <div className="button">
-                        <button onClick={() => Sharebutton()}>Share</button>
-                    </div>
-                    <div className="button">
-                        <button
-                            onClick={() => {
-                                navigator.clipboard.writeText(
-                                    `https://diwali-wishes.vercel.app/?from=${name}`,
-                                    setcopyLinkdata("copied")
-                                );
-                            }}
-                        >
-                            {copyLinkdata}
-                        </button>
-                    </div>
+                    {valuePresent ? (
+                        <>
+                            <div className="button">
+                                <button onClick={() => Sharebutton()}>
+                                    Share
+                                </button>
+                            </div>
+                            <div className="button">
+                                <button
+                                    onClick={() => {
+                                        copyData();
+                                    }}
+                                >
+                                    {copyLinkdata}
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="button">
+                                <button
+                                    onClick={() =>
+                                        alert("Please Enter your name")
+                                    }
+                                >
+                                    Share
+                                </button>
+                            </div>
+                            <div className="button">
+                                <button
+                                    onClick={() => {
+                                        alert("Please Enter your name");
+                                    }}
+                                >
+                                    {copyLinkdata}
+                                </button>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
             {/* <div className="botttom-button">
