@@ -26,6 +26,14 @@ export default function handler(req) {
                     flexWrap: "nowrap",
                 }}
             >
+                <img
+                    alt="Vercel"
+                    height={"100%"}
+                    src="http://localhost:3000/test.svg"
+                    style={{ margin: "0 30px", position: "absolute" }}
+                    width={"100%"}
+                />
+
                 <div
                     style={{
                         width: "100%",
@@ -33,8 +41,9 @@ export default function handler(req) {
                         textAlign: "center",
                         alignItems: "center",
                         justifyContent: "center",
+                        opacity: "0",
                     }}
-                    tw="text-4xl font-bold"
+                    tw="text-4xl font-bold "
                 >
                     Happy Diwali
                 </div>
@@ -45,6 +54,7 @@ export default function handler(req) {
                         textAlign: "center",
                         alignItems: "center",
                         justifyContent: "center",
+                        opacity: "0",
                     }}
                     tw="my-4"
                 >
@@ -68,6 +78,7 @@ export default function handler(req) {
                         display: "flex",
                         textAlign: "center",
                         alignItems: "center",
+                        opacity: "0",
                         justifyContent: "center",
                     }}
                     tw="my-4"
