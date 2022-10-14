@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import slugify from "react-slugify";
+
 const Create = () => {
     const [from, setfrom] = useState("Us");
     useEffect(() => {
@@ -15,7 +17,7 @@ const Create = () => {
     const [copyLinkdata, setcopyLinkdata] = useState("copy link");
     const SetThevalue = (e) => {
         if (e !== "") {
-            setname(e);
+            setname(slugify(e));
             setvaluePresent(true);
         }
         if (e === "") {
