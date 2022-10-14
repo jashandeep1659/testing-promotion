@@ -33,7 +33,7 @@ const Home = (prop) => {
                     name="og:title"
                     content={`Happy Diwali ${
                         prop.from !== "Your name"
-                            ? prop.from
+                            ? `from ${prop.from}`
                             : "wishes for you with some gifts"
                     }`}
                 ></meta>
