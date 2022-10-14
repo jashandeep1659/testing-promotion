@@ -85,7 +85,11 @@ const Home = (prop) => {
             </div>
             <div className="gift">
                 <div className="gift__item">
-                    <img src="/gift.png" alt="gift" />
+                    {/* <img src="/gift.png" alt="gift" /> */}
+                    <video autoPlay loop muted>
+                        <source src="/front.mp4" />
+                    </video>
+
                     <div className="button">
                         <Link href="/gifts">
                             <button>Gifts for you</button>

@@ -15,6 +15,7 @@ $primary-font: "Inter", sans-serif;
 $secondary-font: "Rokkitt", serif;
 body {
     background-color: $primary-color;
+    background-color: black;
     color: $pure-color;
     font-family: $primary-font;
 }
@@ -70,6 +71,10 @@ body {
             img {
                 margin: 0 auto;
                 width: 75%;
+            }
+            video {
+                width: 100%;
+                margin: 0 auto;
             }
             .button {
                 display: flex;
