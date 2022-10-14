@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Countdown from "react-countdown";
 import Head from "next/head";
+import slugify from "react-slugify";
 
 const Home = (prop) => {
     const DiwaliDate = new Date("2022-10-24T00:00:00");
@@ -10,7 +11,6 @@ const Home = (prop) => {
         localStorage.setItem("from", prop.from ? prop.from : "Your Name");
         setTimepending(DiwaliDate);
     }, []);
-
     const countDownRender = ({ days, hours, minutes, seconds, completed }) => {
         if (completed) {
             return null;
@@ -51,7 +51,7 @@ const Home = (prop) => {
                 <meta
                     property="og:url"
                     content={`https://diwali-wishes.vercel.app/?from=${
-                        prop.from ? prop.from : "Your Name"
+                        prop.from ? slugify(prop.from) : "Your Name"
                     }`}
                 ></meta>
 
@@ -95,7 +95,9 @@ const Home = (prop) => {
             </div>
             <div className="botttom-button">
                 <Link href="/create">
-                    <button>Create Yours</button>
+                    <a>
+                        <button>Create Yours</button>
+                    </a>
                 </Link>
             </div>
         </section>
