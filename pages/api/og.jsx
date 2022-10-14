@@ -29,7 +29,7 @@ export default function handler(req) {
                 <img
                     alt="Vercel"
                     height={"100%"}
-                    src="http://localhost:3000/test.svg"
+                    src="https://diwali-wishes.vercel.app/test.svg"
                     style={{ margin: "0 30px", position: "absolute" }}
                     width={"100%"}
                 />
