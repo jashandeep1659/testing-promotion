@@ -44,7 +44,10 @@ const Home = (prop) => {
                     } wishes you a very happy diwali with some gifts check it out`}
                 ></meta>
                 <meta property="og:type" content="article" />
-                <meta property="og:image" content="/fire.png" />
+                <meta
+                    property="og:image"
+                    content="https://diwali-wishes.vercel.app/fire.png"
+                />
                 <meta
                     property="og:url"
                     content={`https://diwali-wishes.vercel.app/?from=${
