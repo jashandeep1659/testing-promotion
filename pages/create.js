@@ -36,7 +36,9 @@ const Create = () => {
 
     const shareData = {
         title: `Happy Diwali from ${name}`,
-        text: `*${name}* wishes you a very happy Diwali in a specail way with some great deals from Amazon. So check now fast  #CreateCustomDiwaliWishes #AmazonSeLiya`,
+        text: `*${name}* wishes you a very happy Diwali in a special way with some great deals from Amazon. So check now fast  #CreateCustomDiwaliWishes #AmazonSeLiya 
+         
+        🔥`,
         url: `https://diwali-wishes.vercel.app/?from=${name}`,
     };
 
