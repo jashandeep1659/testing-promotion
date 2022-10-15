@@ -154,7 +154,7 @@ body {
             display: flex;
             flex-direction: column;
             img {
-                width: 75%;
+                width: 100%;
                 margin: 0 auto;
             }
             h6 {
@@ -266,11 +266,27 @@ body {
 .backbutton {
     display: block;
     margin: 10px 0;
+    cursor: loading;
     a {
         font-size: 20px;
         color: white;
         background-color: #737373;
         padding: 3px;
         border-radius: 50%;
+    }
+}
+button,
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+    #Gift {
+        div.gift {
+            // height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+        }
     }
 }
